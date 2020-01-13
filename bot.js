@@ -14,7 +14,7 @@ bot.onText(/\/start/, (msg) => {
 
 bot.onText(/\/help/, (msg) => {
     const helpMessage =
-        'Hey I\'m the Programmer_News_Bot. Are you programmer or someone into knowing about programming. Well, I\'m here for you. \n\nI can get you some hot news in the programming coming staright from the popular YCombinator\'s Hacker News. Want to get started? \n\nAll you\'ve do is hit /subscribe and you are in our list of news subscribers. I deliver the news 4 times a day everyday of year. Excited eh? Hit /subscribe now\n\n If you think I\'m disturbing you all you have to do is /unsubscribe. I\'m very sad to see you leave! That\'s all you had to know! Now get started by hitting /subscribe.';
+        'Hey I\'m the Programmer_News_Bot. Are you programmer or someone into knowing about programming. Well, I\'m here for you. \n\nI can get you some hot news in the programming coming staright from the popular YCombinator\'s Hacker News. Want to get started? \n\nAll you\'ve do is hit /subscribe and you are in our list of news subscribers. I deliver the news 4 times a day everyday of year. Excited eh? Hit /subscribe now\n\n If you think I\'m disturbing you all you have to do is /unsubscribe. I\'m very sad to see you leave! That\'s all you had to know! Now get started by hitting /subscribe. \n\nIf you don\'t want news messages cluttering up every 6 hours! Then /send command is here for you use it get the news instantly.';
     
     bot.sendMessage(msg.chat.id, helpMessage);
 });
