@@ -15,6 +15,11 @@ async function getTopNews(bot, msg) {
 
         const topItem = await request(itemUrl);
 
+        if(topItem.url === undefined) {
+            i--;
+            continue;
+        }
+        
         const message = `${topItem.title} \n\n${topItem.url}`;
 
         bot.sendMessage(msg.chat.id, message);

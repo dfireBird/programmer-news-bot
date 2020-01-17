@@ -1,6 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api');
 const {token} = require('./config.json');
 const getTopNews = require('./src/news');
+const subscribe = require('./src/subscribe');
 
 const bot = new TelegramBot(token, {polling: true});
 
@@ -23,6 +24,7 @@ bot.onText(/\/subscribe/, (msg) => {
     const subscribeMessage = 
         'You\'re now subscribed! Now you get news every 6 hours a day, starting from 0:00 UTC. \n\nIf you want to stop our service at any time just hit /unsubscribe';
 
+    subscribe(msg.chat.username, msg.chat.id);
     bot.sendMessage(msg.chat.id, subscribeMessage);
 });
 

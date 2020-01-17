@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/Phoenix181/programmer-news-bot#readme",
   "dependencies": {
-    "node-telegram-bot-api": "^0.40.0"
+    "node-telegram-bot-api": "^0.40.0",
+    "sqlite3": "^4.1.1"
   }
 }
