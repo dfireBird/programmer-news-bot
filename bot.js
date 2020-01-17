@@ -2,6 +2,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const {token} = require('./config.json');
 const getTopNews = require('./src/news');
 const subscribe = require('./src/subscribe');
+const unsubscribe = require('./src/unsubscribe');
 
 const bot = new TelegramBot(token, {polling: true});
 
@@ -31,7 +32,8 @@ bot.onText(/\/subscribe/, (msg) => {
 bot.onText(/\/unsubscribe/, (msg) => {
     const unsubscribeMessage = 
         'I\'ve removed you from the subscribers list. I\'m sad to see you leave. Hope to see you again soon. \n\nBut If you had a change of mind! Hit /subscribe now.';
-    
+        
+    unsubscribe(msg.chat.id);
     bot.sendMessage(msg.chat.id, unsubscribeMessage);
 });
 

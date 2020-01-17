@@ -1,7 +1,7 @@
 const sqlite3 = require('sqlite3').verbose();
 
 function subscribe(username, id) {
-    const db = new sqlite3.Database('subscribers.sqlite3');
+    const db = new sqlite3.Database('./data/subscribers.sqlite3');
 
     db.serialize(() => {
         db.run('CREATE TABLE if not exists user_info (username TEXT, chatid INT PRIMARY KEY)');

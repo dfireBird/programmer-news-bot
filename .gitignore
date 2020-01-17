@@ -105,4 +105,5 @@ dist
 
 # User Files
 config.json
-*.sqlite3
+data/**
+.vscode/**
