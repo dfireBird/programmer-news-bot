@@ -1,12 +1,12 @@
 const TelegramBot = require('node-telegram-bot-api');
 const {token} = require('./config.json');
-const getTopNews = require('./src/news');
+const {sendDaily, sendInstant} = require('./src/news');
 const subscribe = require('./src/subscribe');
 const unsubscribe = require('./src/unsubscribe');
 
 const bot = new TelegramBot(token, {polling: true});
 
-
+const sixHoursMs = 1000 * 60 * 60 * 6;
 
 bot.onText(/\/start/, (msg) => {
     const startMessage = 
@@ -38,5 +38,16 @@ bot.onText(/\/unsubscribe/, (msg) => {
 });
 
 bot.onText(/\/send/, (msg) => {
-    getTopNews(bot, msg);
+    sendInstant(bot, msg);
 });
+
+const current = new Date().getTime();
+const offset = new Date();
+offset.setUTCDate(offset.getUTCDate() + 1);
+offset.setUTCHours(0, 0, 0, 0);
+
+setTimeout(() => {
+    setInterval(() => {
+        sendDaily(bot);
+    }, sixHoursMs);
+}, offset - current);
