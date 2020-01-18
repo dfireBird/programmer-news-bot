@@ -39,7 +39,7 @@ function sendInstantTopNews(bot, msg) {
 }
 
 function sendDailyTopNews(bot) {
-    const db = new sqlite3.Database('/data/subscribers.sqlite3')
+    const db = new sqlite3.Database('./data/subscribers.sqlite3')
     getTopNews().then(messages => {
         db.each('SELECT chatid FROM user_info', (err, id) => {
             if(err) {
