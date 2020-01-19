@@ -47,7 +47,7 @@ function sendDailyTopNews(bot) {
             }
 
             for(const message of messages) {
-                bot.sendMessage(id, message);
+                bot.sendMessage(id.chatid, message);
             }
         });
     })
