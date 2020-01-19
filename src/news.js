@@ -50,7 +50,7 @@ function sendDailyTopNews(bot) {
                 bot.sendMessage(id.chatid, message);
             }
         });
-    })
+    });
 }
 
 exports.sendInstant = sendInstantTopNews;

@@ -41,13 +41,14 @@ bot.onText(/\/send/, (msg) => {
     sendInstant(bot, msg);
 });
 
-const current = new Date().getTime();
-const offset = new Date();
-offset.setUTCDate(offset.getUTCDate() + 1);
-offset.setUTCHours(0, 0, 0, 0);
+const current = new Date()
+const target = new Date();
+target.setUTCDate(target.getUTCDate() + 1);
+target.setUTCHours(0, 0, 0, 0);
 
 setTimeout(() => {
+    sendDaily(bot);
     setInterval(() => {
         sendDaily(bot);
     }, sixHoursMs);
-}, offset - current);
+}, target.getTime() - current.getTime());
