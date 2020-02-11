@@ -1,6 +1,6 @@
 const TelegramBot = require('node-telegram-bot-api');
 const {token} = require('./config.json');
-const {sendDaily, sendInstant} = require('./src/news');
+const {sendInstant} = require('./src/news');
 const subscribe = require('./src/subscribe');
 const unsubscribe = require('./src/unsubscribe');
 

@@ -1,21 +1,16 @@
 const sqlite3 = require('sqlite3');
-const request = require('./request');
+const hackerNewsAPI = require('hacker-news-wrapper');
 
 async function getTopNews() {
-    const topStoriesUrl =
-      'https://hacker-news.firebaseio.com/v0/topstories.json';
-    
-    const topstories = await request(topStoriesUrl);
+    const topstories = await hackerNewsAPI.fetchTopStories();
 
     let messages = [];
     let i = 0;
     for(const item of topstories) {
         if(++i > 10)
             break;
-        
-        const itemUrl = `https://hacker-news.firebaseio.com/v0/item/${item}.json`;
 
-        const topItem = await request(itemUrl);
+        const topItem = await hackerNewsAPI.fetchItem(item);
 
         if(topItem.url === undefined) {
             i--;
