@@ -1,0 +1,3 @@
+[submodule "hacker-news-wrapper"]
+	path = hacker-news-wrapper
+	url = https://github.com/Phoenix181/hacker-news-wrapper.git
