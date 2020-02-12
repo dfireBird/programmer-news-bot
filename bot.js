@@ -37,7 +37,14 @@ bot.onText(/\/unsubscribe/, (msg) => {
 });
 
 bot.onText(/\/send/, (msg) => {
-    sendInstant(bot, msg);
+    const text = msg.text.split(' ');
+    const newsNumber = parseInt(text[1]);
+    if(isNaN(newsNumber) && text.length > 1)
+        bot.sendMessage(msg.chat.id, 'Send a valid number of messages to send');
+    else if(text.length > 1)
+        sendInstant(bot, msg.chat.id, newsNumber);
+    else
+        sendInstant(bot, msg.chat.id);
 });
 
 sendAutomation(bot);
