@@ -41,16 +41,16 @@ function sendHourlyTopNews(bot) {
                 console.log(err);
             }
 
-            bot.sendMessage(id.chatid, '*Start of Hourly News*\n---------------------------', {
-                parse_mode: MarkdownV2
+            bot.sendMessage(id.chatid, '*Start of Hourly News*\n\n\n', {
+                parse_mode: 'MarkdownV2'
             });
 
             for(const message of messages) {
                 bot.sendMessage(id.chatid, message);
             }
 
-            bot.sendMessage(id.chatid, '*End of Hourly News*\n---------------------------', {
-                parse_mode: MarkdownV2
+            bot.sendMessage(id.chatid, '\n\n\n*End of Hourly News*', {
+                parse_mode: 'MarkdownV2'
             });
         });
     });
