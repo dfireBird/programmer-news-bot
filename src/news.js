@@ -33,7 +33,7 @@ function sendInstantTopNews(bot, id, newsNumber = 5) {
     });
 }
 
-function sendDailyTopNews(bot) {
+function sendHourlyTopNews(bot) {
     const db = new sqlite3.Database('./data/subscribers.sqlite3')
     getTopNews(2).then(messages => {
         db.each('SELECT chatid FROM user_info', (err, id) => {
@@ -41,12 +41,20 @@ function sendDailyTopNews(bot) {
                 console.log(err);
             }
 
+            bot.sendMessage(id.chatid, '*Start of Hourly News*\n---------------------------', {
+                parse_mode: MarkdownV2
+            });
+
             for(const message of messages) {
                 bot.sendMessage(id.chatid, message);
             }
+
+            bot.sendMessage(id.chatid, '*End of Hourly News*\n---------------------------', {
+                parse_mode: MarkdownV2
+            });
         });
     });
 }
 
 exports.sendInstant = sendInstantTopNews;
-exports.sendDaily = sendDailyTopNews;
+exports.sendHourly = sendHourlyTopNews;

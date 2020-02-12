@@ -1,4 +1,4 @@
-const {sendDaily} = require('./news');
+const {sendHourly} = require('./news');
 
 const hourinms = 1000 * 60 * 60;
 
@@ -9,9 +9,9 @@ module.exports = bot => {
     target.setUTCMinutes(0, 0, 0);
 
     setTimeout(() => {
-        sendDaily(bot);
+        sendHourly(bot);
         setInterval(() => {
-            sendDaily(bot);
+            sendHourly(bot);
         }, hourinms);
     }, target.getTime() - current.getTime());
 }
