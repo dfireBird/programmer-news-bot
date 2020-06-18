@@ -26,7 +26,7 @@
   "homepage": "https://github.com/Phoenix181/programmer-news-bot#readme",
   "dependencies": {
     "hacker-news-wrapper": "file:hacker-news-wrapper",
-    "node-telegram-bot-api": "^0.40.0",
+    "node-telegram-bot-api": "^0.50.0",
     "sqlite3": "^4.2.0"
   }
 }
