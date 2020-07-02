@@ -27,6 +27,6 @@
   "dependencies": {
     "hacker-news-wrapper": "file:hacker-news-wrapper",
     "node-telegram-bot-api": "^0.50.0",
-    "sqlite3": "^4.2.0"
+    "sqlite3": "^5.0.0"
   }
 }
